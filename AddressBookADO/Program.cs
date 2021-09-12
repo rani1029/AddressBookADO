@@ -25,7 +25,9 @@ namespace AddressBookADO
             person.Type = "Family";
 
             //manager.AddEmployee(person);
-            manager.UpdatePerson(person);
+            // manager.UpdatePerson(person);
+            //manager.DeletePerson(person);
+            manager.RetrievePersonByCityOrState(person);
         }
     }
 
