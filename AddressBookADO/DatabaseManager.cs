@@ -140,8 +140,39 @@ namespace AddressBookADO
             }
             return false;
         }
-    }
+        public bool DeletePerson(Person person)
+        {
+            try
+            {
+                using (this.myConn)
+                {
+                    SqlCommand command = new SqlCommand("sp_deletePersonDetails", this.myConn);
 
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@FirstName", person.FirstName);
+
+                    this.myConn.Open();
+                    var result = command.ExecuteNonQuery();
+                    this.myConn.Close();
+                    if (result != 0)
+                        return true;
+
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                this.myConn.Close();
+            }
+            return false;
+        }
+    }
 }
+
+
 
 
