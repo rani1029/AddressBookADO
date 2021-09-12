@@ -24,7 +24,8 @@ namespace AddressBookADO
             person.AddressBookName = "rg";
             person.Type = "Family";
 
-            manager.AddEmployee(person);
+            //manager.AddEmployee(person);
+            manager.UpdatePerson(person);
         }
     }
 
