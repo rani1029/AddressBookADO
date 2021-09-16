@@ -7,27 +7,33 @@ namespace AddressBookADO
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to addressbook with Ado.net");
-            DatabaseManager manager = new DatabaseManager();
+
 
             //UC1
-            manager.CreateDatabase();
+
 
             Person person = new Person();
-            person.FirstName = "Rani";
-            person.LastName = "Gupta";
-            person.Address = "Mumbai";
-            person.PhoneNumber = "997654390";
-            person.ZipCode = 678743;
-            person.City = "mum";
-            person.State = "mh";
-            person.EmailId = "rani@gmail.com";
-            person.AddressBookName = "rg";
+            person.FirstName = "Rohit";
+            person.LastName = "kumar";
+            person.Address = "cp rd";
+            person.PhoneNumber = "7697654390";
+            person.ZipCode = 678787;
+            person.City = "kolkata";
+            person.State = "wb";
+            person.EmailId = "example@gmail.com";
+            person.AddressBookName = "rk";
             person.Type = "Family";
+            OperationManager manager = new OperationManager();
 
-            //manager.AddEmployee(person);
-            // manager.UpdatePerson(person);
-            //manager.DeletePerson(person);
-            manager.RetrievePersonByCityOrState(person);
+            bool result = manager.AddContact(person);
+            if (result)
+            {
+                Console.WriteLine("contact added");
+            }
+            else
+                Console.WriteLine("error ");
+
+
         }
     }
 
